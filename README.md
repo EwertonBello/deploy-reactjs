@@ -22,5 +22,12 @@ Fazendo deploy de um app default do ReactJS no GitHub Pages<br/>
     "private": true,
     "homepage": "https://ewertonbello.github.io/deploy-reactjs",
     ```
-3. Agora faça o build do seu app, dentro da pasta do seu projeto execute `npm run build` ou `yarn build` se preferir utilizar o yarn.
+3. Agora faça o build do seu app, dentro da pasta do seu projeto execute `npm run build` ou `yarn build` se preferir utilizar o yarn. Obs: insira a propriedade `basename={process.env.PUBLIC_URL}` no BrowserRouter do arquivo index.js caso ocorra problemas de rotas como não encontrar a página inicial (404).<br/>
+    ```
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
+        <Switch>
+        .
+        .
+        .
+    ```
 4. Depois utilize o comando `npx gh-pages -d build` para fazer o deploy da pasta build do seu app no branch gh-pages, utilizando o pacote gh-pages.
